@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+
+  portal:
+    build:
+      context: portal/
+    image: docker.qjdchina.com/qjd/portal:v0.0.1
+    container_name: portal
+    ports:
+      - "8070:8070"
+    network_mode: host
+    restart: always
+
+  adminservice:
+    build:
+      context: adminservice/
+    image: docker.qjdchina.com/qjd/adminservice:v0.0.1
+    container_name: adminservice
+    ports:
+      - "8090:8090"
+    network_mode: host
+    restart: always
+    depends_on:
+      - portal
+
+  configservice:
+    build:
+      context: configservice/
+
+    image: docker.qjdchina.com/qjd/configservice:v0.0.1
+    container_name: configservice
+    network_mode: host
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - portal
