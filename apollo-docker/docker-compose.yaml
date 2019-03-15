@@ -7,6 +7,10 @@ services:
       context: portal/
     image: docker.qjdchina.com/qjd/portal:v0.0.1
     container_name: portal
+    environment:
+       spring_datasource_url: jdbc:mysql://10.1.1.184:4020/apolloportaldb?characterEncoding=utf8
+       spring_datasource_username: root
+       spring_datasource_password: 123456
     ports:
       - "8070:8070"
     network_mode: host
@@ -17,6 +21,10 @@ services:
       context: adminservice/
     image: docker.qjdchina.com/qjd/adminservice:v0.0.1
     container_name: adminservice
+    environment:
+       spring_datasource_url: jdbc:mysql://10.1.1.184:4020/ApolloConfigDB?characterEncoding=utf8
+       spring_datasource_username: root
+       spring_datasource_password: 123456
     ports:
       - "8090:8090"
     network_mode: host
@@ -30,6 +38,10 @@ services:
 
     image: docker.qjdchina.com/qjd/configservice:v0.0.1
     container_name: configservice
+    environment:
+       spring_datasource_url: jdbc:mysql://10.1.1.184:4020/ApolloConfigDB?characterEncoding=utf8
+       spring_datasource_username: root
+       spring_datasource_password: 123456
     network_mode: host
     restart: always
     ports:

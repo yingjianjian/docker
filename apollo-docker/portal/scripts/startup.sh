@@ -84,7 +84,7 @@ printf "$(date) ==== Starting ==== \n"
 
 ln $PATH_TO_JAR $SERVICE_NAME".jar"
 chmod a+x $SERVICE_NAME".jar"
-java -jar $SERVICE_NAME".jar"
+java -Dpro_meta=http://localhost:8080 -jar $SERVICE_NAME".jar"
 
 rc=$?;
 
