@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  Q-SCHEME: $scheme
+  Q-HOST: $host
+  Q-REQUEST-URI: $request_uri
+kind: ConfigMap
+metadata:
+  name: custom-headers
+  namespace: ingress-nginx
