@@ -1,1 +1,1 @@
-FROM gcr.io/spinnaker-marketplace/halyard:1.20.1
+FROM openjdk:8u212-slim
